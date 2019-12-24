@@ -1,0 +1,154 @@
+body,html{
+	margin:0;
+}
+
+
+body{
+	height:100%;
+	font-family:"Nimbus Sans L","Helvetica Neue","Franklin Gothic Medium",Sans-serif;
+/*display:none;*/
+}
+
+
+header{
+	position:absolute;
+	padding:1em;
+	z-index:20;
+	display:flex; /*in case of animations, we always need the header element to be on top*/
+	justify-content:space-between /*This separates the logo and the nav bar*/
+	width:calc(100%-2em);
+	background:white;
+
+}
+header a{
+	float:left;
+}
+header nav{
+	float:left;
+}
+header a{
+	text-decoration:none;
+	color:black;
+}
+header nav ul{
+	list-style-type:none;
+	display:flex;
+	justify-content:space-around;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+ header nav ul li a{
+	padding:1em;
+}
+
+
+
+.wrapper{
+	display:grid;
+	grid-template-columns:auto;
+
+}
+.wrapper section{
+	padding:3em;
+}
+.wrapper section h1,h2,.read-btn{
+	
+}
+.wrapper section h2{
+	font-size:1.4rem;
+}
+.wrapper section .read-btn{
+	text-decoration:none;
+	color:black;
+	font-weight:bold;
+	background:url("../img/bigTriangle.png")no-repeat;
+	background-size:14px;
+	background-position:0 1px;
+	padding-left:1em;
+}
+.wrapper section .read-btn{
+	padding:1em 1em 1em 1.5em;
+	background-position:0.5em;
+	background-color:gray;
+	border-radius:12px;
+	display:inline-block;
+	margin-top:3em;
+	/*when working with a elements and you want to move them around
+	you have to use the display:inline-block property;*/
+}
+.wrapper section .clipperEffect{
+	overflow:hidden;
+}
+.wrapper section.mainPage{
+	padding-top:8em;
+	background:url("../img/backImg.jpg");
+	background-size:cover;
+}
+.wrapper section.mainPage p{
+	width:70%;
+	font-size:1.2rem;
+	margin-bottom:0;
+}
+.wrapper section.mainPage h1{
+	font-size:2.4rem;
+}
+.wrapper section.sideBar,section.subscribe{
+	font-size:.9rem;
+	line-height:1.6em;
+}
+.wrapper section.sideBar{
+	background:linear-gradient(to right, #2E4394,#242122);
+}
+.wrapper section.subscribe input{
+	width:47%;
+	padding:1em;
+	margin-bottom:1em;
+	border:2px solid black;
+}
+.wrapper section.subscribe button{
+	width:50%;
+	padding:1em;
+	border:none;/*the default button always comes with a border*/
+}
+/*first media query for making the site responsible
+on larger-screen devices*/
+/*568px is the width at which things start looking different
+in chrome you can check the size of the screen by pressing
+ctrl+shift+i and dragging and adjusting the screen to see how 
+the width changes*/
+@media screen and (min-width:568px) {
+	html{
+		font-size:18px;
+	}
+}
+
+@media screen and (min-width:1020px){
+	header{
+		background:none;
+	}
+	.wrapper{
+		grid-template-columns:70% auto;
+		grid-template-rows:70% auto;
+		grid-template-areas:"mainPage sideBar" "mainPage subscribe";
+		height:100vh;
+	}
+	section.mainPage{
+		grid-area:mainPage;
+	}
+	section{
+		display:grid;
+		grid-template-rows:auto;
+		align-items:center;
+	}
+}
+@media screen and (min-width:1800px){
+	html{
+		font-size:21px;
+	}
+}
+/*absolute positioning positions the element
+on top of the regular layout*/
+
+/*display:flex;
+justify-content:space-between;*/
